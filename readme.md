@@ -24,15 +24,12 @@ pyinstaller --onefile --windowed --add-data "config.json;." --icon="app.ico" --n
 ※ --icon="app.ico"は iconのファイル名を記入するように…  
 
 [ コマンドオプション ]  
---onefile: すべての依存ライブラリやファイルを1つの .exe ファイルにまとめる  
---windowed: GUIアプリケーションであることを示し、実行時にコンソールウィンドウを表示させない  
---add-data "config.json;.": config.json ファイルを、ビルド成果物（.exe）と  
-    同じディレクトリ（.）に含めます。Windowsでは区切り文字に ; を使用  
---icon="app.ico": アプリケーションのアイコンファイルを指定  
+・ --onefile: すべての依存ライブラリやファイルを1つの .exe ファイルにまとめる  
+・ --windowed: GUIアプリケーションであることを示し、実行時にコンソールウィンドウを表示させない  
+・ --add-data "config.json;.": config.json ファイルを、ビルド成果物（.exe）と  
+    同じディレクトリ（.）に含める、Windowsでは区切り文字に ; を使用  
+・ --icon="app.ico": アプリケーションのアイコンファイルを指定  
     ".ico"形式のファイルを事前に用意  
---hidden-import="win32timezone": PyInstallerが自動で見つけられない「隠れた」依存モジュールを指定。
-    `pywin32`ライブラリは、タイムゾーン情報を扱う`win32timezone`モジュールを内部で利用しますが、
-    PyInstallerが見逃すことがあるため、このオプションで明示的に含めることで実行時エラーを防ぐ
 
     **補足: Windows標準のアイコンを使いたい場合**  
     ・Windowsに内蔵されているアイコン
@@ -46,7 +43,11 @@ pyinstaller --onefile --windowed --add-data "config.json;." --icon="app.ico" --n
     2. 好みのアイコンを探し、".ico" ファイルとしてプロジェクトフォルダに保存  
 
     3. 保存した ".ico" ファイルをこのオプションで指定  
---name "AppLauncher": 生成される .exe ファイルの名前を AppLauncher.exe に指定  
+・ --hidden-import="win32timezone": PyInstallerが自動で見つけられない「隠れた」依存モジュールを指定。
+    "pywin32"ライブラリは、タイムゾーン情報を扱う"win32timezone"モジュールを内部で利用できるが、
+    PyInstallerが見逃すことがあるため、このオプションで明示的に含めることで実行時エラーを防ぐ
+
+・ --name "AppLauncher": 生成される .exe ファイルの名前を AppLauncher.exe に指定  
     desktop_launcher.py: 変換対象のPythonスクリプト  
 
 [ 生成されたファイル確認 ]  
@@ -59,18 +60,15 @@ build フォルダ: ビルドプロセス中に使用された一時ファイル
     不要であれば削除しても問題ない  
 AppLauncher.spec: ビルド設定が記述されたファイル  
     より高度なカスタマイズを行う際に編集できる  
-これで、dist フォルダにある AppLauncher.exe を他のPCにコピーするだけで、  
-    アプリケーションを実行できるように…  
 
-##### [ 用語・説明 ]  
-バリデーションとは？  
+##### [ バリデーションとは ]  
 一言で言うと、**「入力されたデータが正しいかどうかを検証する処理」**  
 
 プログラムがユーザーからの入力を受け取ったり、  
 データを保存したりする際に、そのデータが意図した形式やルールに従っているかを確認する  
 もしルールに反するデータがあれば、エラーメッセージを表示して入力を促したり、処理を中断したりする  
 
-###### [ バリデーションのメリット ]  
+[ バリデーションのメリット ]  
 1. 不正確なデータを防ぐ: アプリケーションが予期せぬデータによって誤作動したり、  
     停止したりするのを防ぐ  
 2. ユーザー体験の向上: ユーザーが間違った情報を入力した際に、  
@@ -78,7 +76,7 @@ AppLauncher.spec: ビルド設定が記述されたファイル
 3. セキュリティの強化: 不正な形式のデータ（悪意のあるコードなど）が  
     システムに送り込まれるのを防ぐ  
 
-##### [ AppLauncher.spec の役割と内容]  
+[ AppLauncher.spec の役割と内容]  
 このファイルはPythonスクリプト形式で書かれており、  
 主に2つの重要なセクションから構成されている  
 
@@ -93,11 +91,11 @@ AppLauncher.spec: ビルド設定が記述されたファイル
 2. コンソールウィンドウを表示しないようにするか（GUIアプリの場合） (console=False)  
 3. アプリケーションのアイコン (icon=) などを定義  
 
-[ readme.mdのコマンドとの対応 ]  
-readme.mdに記載されているpyinstallerコマンドのオプションは、  
+[ pyinstallerコマンドオプション ]  
+pyinstallerコマンドのオプションは、  
 AppLauncher.specファイル内の設定に直接対応  
 
-readme.mdのコマンドオプション	    AppLauncher.spec内の設定	                  説明  
+コマンドオプション	              AppLauncher.spec内の設定	                    説明  
 -----------------------------------------------------------------------------------------------------  
 ・desktop_launcher.py	          a = Analysis(['desktop_launcher.py'], ...)	ビルド対象のスクリプト  
 ・--name "AppLauncher"	          name='AppLauncher'	                        生成される.exeファイル名  
