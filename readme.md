@@ -48,6 +48,7 @@ pyinstaller --onefile --windowed --add-data "config.json;." --icon="app.ico" --n
     同じディレクトリ（.）に含める、Windowsでは区切り文字に ; を使用  
 ・ --icon="app.ico": アプリケーションのアイコンファイルを指定  
     ".ico"形式のファイルを事前に用意  
+    
         **補足: Windows標準のアイコンを使いたい場合**  
         ・Windowsに内蔵されているアイコン
         （例：フォルダや設定のアイコン）を使いたい場合、それらはDLLファイル内に格納されている  
