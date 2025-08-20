@@ -95,13 +95,13 @@ AppLauncher.spec: ビルド設定が記述されたファイル
 pyinstallerコマンドのオプションは、  
 AppLauncher.specファイル内の設定に直接対応  
 
-コマンドオプション	              AppLauncher.spec内の設定	                    説明  
+コマンドオプション                    AppLauncher.spec内の設定                        説明  
 -----------------------------------------------------------------------------------------------------  
-・desktop_launcher.py	          a = Analysis(['desktop_launcher.py'], ...)	ビルド対象のスクリプト  
-・--name "AppLauncher"	          name='AppLauncher'	                        生成される.exeファイル名  
-・--windowed	                  console=False	                                コンソールウィンドウを非表示  
-・--add-data "config.json;."	  datas=[('config.json', '.')]	                config.jsonを.exeと同じ階層に含める  
-・--icon="app.ico"	              icon=['app.ico']	                            アプリケーションのアイコンを指定  
+・desktop_launcher.py                a = Analysis(['desktop_launcher.py'], ...)	    ビルド対象のスクリプト  
+・--name "AppLauncher"               name='AppLauncher'                             生成される.exeファイル名  
+・--windowed                         console=False	                                コンソールウィンドウを非表示  
+・--add-data "config.json;."         datas=[('config.json', '.')]                   config.jsonを.exeと同じ階層に含める  
+・--icon="app.ico"                   icon=['app.ico']                               アプリケーションのアイコンを指定  
 
 [ etc. ]  
 2025.08.20  
