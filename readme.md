@@ -2,8 +2,10 @@
 
 ### シンプルに作ったつもりのデスクトップランチャー  
 
+
 デスクトップを必要最低限のアイコンで飾りたかったので作成  
 .exe化にして使用することを前提  
+
 
 [ 機能 ]  
 ・ユーザーがよく使用するプログラムをカテゴリごとに登録できる  
@@ -11,11 +13,13 @@
     ドラッグ＆ドロップで順番を入れ替え可能  
 ・過去に管理者権限で実行したアプリケーションも登録・起動可能  
 
+
 [ リポジトリ内ファイル ]  
 1. desktop_launcher.py: プログラム本体  
 2. config.json: 設定ファイル  
 3. signal.ico: おまけのiconファイル  
 4. readme.md: いちおう備忘録的なこのファイル  
+
 
 [ .exe化 ]  
 pip install pyinstaller (pip listでインストールが確認できない場合にインストール)  
@@ -26,17 +30,19 @@ pip install pyinstaller (pip listでインストールが確認できない場�
 3. アプリケーションにはいくつか考慮すべき点があるため  
     オプションを指定して実行するのがおすすめ  
 
-1. GUIアプリであること: 実行時に黒いコンソール画面が表示されないように   
-    --windowed (または -w) オプションを追加  
-2. 設定ファイル (config.json) が必要: .exe ファイルに   
-    config.json を含める必要があり --add-data オプションで指定  
-3. 配布のしやすさ: 関連ファイルをすべて1つの .exe ファイルにまとめる   
-    --onefile オプションを使うと便利  
+    1. GUIアプリであること: 実行時に黒いコンソール画面が表示されないように   
+        --windowed (または -w) オプションを追加  
+    2. 設定ファイル (config.json) が必要: .exe ファイルに   
+        config.json を含める必要があり --add-data オプションで指定  
+    3. 配布のしやすさ: 関連ファイルをすべて1つの .exe ファイルにまとめる   
+        --onefile オプションを使うと便利  
 
-[ .exe化コマンド (例) ]
+
+[ .exe化コマンド (例) ]  
 pyinstaller --onefile --windowed --add-data "config.json;." --icon="app.ico" --name "AppLauncher" --hidden-import="win32timezone" desktop_launcher.py  
 
 ※ --icon="app.ico"は iconのファイル名を記入するように…  
+
 
 [ コマンドオプション ]  
 ・ --onefile: すべての依存ライブラリやファイルを1つの .exe ファイルにまとめる  
