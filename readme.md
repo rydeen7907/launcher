@@ -48,17 +48,16 @@ pyinstaller --onefile --windowed --add-data "config.json;." --icon="app.ico" --n
     同じディレクトリ（.）に含める、Windowsでは区切り文字に ; を使用  
 ・ --icon="app.ico": アプリケーションのアイコンファイルを指定  
     ".ico"形式のファイルを事前に用意  
-  
-    **補足: Windows標準のアイコンを使いたい場合**  
-    ・Windowsに内蔵されているアイコン
-    （例：フォルダや設定のアイコン）を使いたい場合、それらはDLLファイル内に格納されている  
-    ・PyInstallerでこれらを利用するには、一度 `.ico` ファイルとして抽出する必要がある  
-    1. アイコン抽出ツール（例: Resource Hacker）を使って、  
+        **補足: Windows標準のアイコンを使いたい場合**  
+        ・Windowsに内蔵されているアイコン
+        （例：フォルダや設定のアイコン）を使いたい場合、それらはDLLファイル内に格納されている  
+        ・PyInstallerでこれらを利用するには、一度 `.ico` ファイルとして抽出する必要がある  
+        1. アイコン抽出ツール（例: Resource Hacker）を使って、  
         "C:\Windows\System32\shell32.dll" や "C:\Windows\System32\imageres.dll" を開く  
         (C:\Windows\SystemResourcesに格納されていることも…)  
         詳細はWebで検索  
-    2. 好みのアイコンを探し、".ico" ファイルとしてプロジェクトフォルダに保存  
-    3. 保存した ".ico" ファイルをこのオプションで指定  
+        2. 好みのアイコンを探し、".ico" ファイルとしてプロジェクトフォルダに保存  
+        3. 保存した ".ico" ファイルをこのオプションで指定  
 ・ --hidden-import="win32timezone": PyInstallerが自動で見つけられない「隠れた」依存モジュールを指定。  
     "pywin32"ライブラリは、タイムゾーン情報を扱う"win32timezone"モジュールを内部で利用できるが、  
     PyInstallerが見逃すことがあるため、このオプションで明示的に含めることで実行時エラーを防ぐ  
