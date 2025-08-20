@@ -1,0 +1,40 @@
+{
+  "仕事用ツール": [
+    {
+      "name": "エクスプローラー",
+      "path": "explorer.exe"
+    },
+    {
+      "name": "メモ帳",
+      "path": "C:/Windows/notepad.exe"
+    },
+    {
+      "name": "電卓",
+      "path": "C:/Windows/System32/calc.exe"
+    }
+  ],
+  "ユーティリティ": [
+    {
+      "name": "タスクマネージャー",
+      "path": "C:/Windows/System32/Taskmgr.exe"
+    },
+    {
+      "name": "コントロールパネル",
+      "path": "C:/Windows/System32/control.exe"
+    }
+  ],
+  "ブラウザ": [
+    {
+      "name": "Google Chrome",
+      "path": "C:/Program Files/Google/Chrome/Application/chrome.exe"
+    },
+    {
+      "name": "Microsoft Edge",
+      "path": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+    }
+  ],
+  "開発": [],
+  "動画・音声編集": [],
+  "メディア": [],
+  "ゲーム": []
+}
